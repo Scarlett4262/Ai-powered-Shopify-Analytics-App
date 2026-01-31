@@ -1,0 +1,59 @@
+# Logs
+*.log
+*.out
+*.pid
+
+# Environment variables
+.env
+.env.local
+.env.production
+.env.development
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+.env/
+.pytest_cache/
+.coverage
+htmlcov/
+.pytest_cache/
+.hypothesis/
+.DS_Store
+
+# Ruby / Rails
+*.gem
+*.rbc
+.bundle/
+.config/
+.yardoc/
+Gemfile.lock
+InstalledFiles
+pkg/
+spec/reports/
+test/tmp/
+test/version_tmp/
+tmp/
+
+# Ignore Byebug command history file.
+.byebug_history
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

@@ -1,0 +1,69 @@
+# Sample test requests for the AI Shopify Analytics App
+
+# 1. Test the health endpoint
+curl -X GET http://localhost:3000/api/v1/health
+
+# 2. Test the AI service health endpoint
+curl -X GET http://localhost:8000/health
+
+# 3. Sample questions to test the main functionality
+
+# Question 1: Inventory projection
+curl -X POST http://localhost:3000/api/v1/questions \
+  -H "Content-Type: application/json" \
+  -d '{
+    "store_id": "example-store.myshopify.com",
+    "question": "How many units of Product X will I need next month?",
+    "shop_access_token": "your_shopify_access_token"
+  }'
+
+# Question 2: Stock prediction
+curl -X POST http://localhost:3000/api/v1/questions \
+  -H "Content-Type: application/json" \
+  -d '{
+    "store_id": "example-store.myshopify.com",
+    "question": "Which products are likely to go out of stock in 7 days?",
+    "shop_access_token": "your_shopify_access_token"
+  }'
+
+# Question 3: Top selling products
+curl -X POST http://localhost:3000/api/v1/questions \
+  -H "Content-Type: application/json" \
+  -d '{
+    "store_id": "example-store.myshopify.com",
+    "question": "What were my top 5 selling products last week?",
+    "shop_access_token": "your_shopify_access_token"
+  }'
+
+# Question 4: Reorder recommendation
+curl -X POST http://localhost:3000/api/v1/questions \
+  -H "Content-Type: application/json" \
+  -d '{
+    "store_id": "example-store.myshopify.com",
+    "question": "How much inventory should I reorder based on last 30 days sales?",
+    "shop_access_token": "your_shopify_access_token"
+  }'
+
+# Question 5: Customer analysis
+curl -X POST http://localhost:3000/api/v1/questions \
+  -H "Content-Type: application/json" \
+  -d '{
+    "store_id": "example-store.myshopify.com",
+    "question": "Which customers placed repeat orders in the last 90 days?",
+    "shop_access_token": "your_shopify_access_token"
+  }'
+
+# Example response format:
+# {
+#   "answer": "Based on the last 30 days, you sell around 10 units per day. You should reorder at least 70 units to avoid stockouts next week.",
+#   "confidence": "medium"
+# }
+
+# To test the Python AI service directly:
+curl -X POST http://localhost:8000/api/v1/process-question \
+  -H "Content-Type: application/json" \
+  -d '{
+    "question": "What were my top 5 selling products last week?",
+    "store_id": "example-store.myshopify.com",
+    "shop_access_token": "your_shopify_access_token"
+  }'
